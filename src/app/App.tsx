@@ -182,6 +182,11 @@ function App() {
     }
   };
 
+  const handleConnectButtonClick = async () => {
+    await fetchEphemeralKey();
+    connectToRealtime();
+  };
+
   const disconnectFromRealtime = () => {
     if (pcRef.current) {
       pcRef.current.getSenders().forEach((sender) => {
@@ -419,12 +424,29 @@ function App() {
           <div>
             Realtime API <span className="text-gray-500">Agents</span>
           </div>
+          
         </div>
         <div className="flex items-center">
-          <label className="flex items-center text-base gap-1 mr-2 font-medium">
+        <label className="flex items-center text-base gap-1 mr-2 font-medium">
+            Api Key
+          </label>
+        <input
+            id="api-key"
+            type="text"
+            placeholder="Enter text"
+            className="border border-gray-300 rounded-lg text-base px-2 py-1 mr-2 focus:outline-none"
+          />
+          <button
+            onClick={handleConnectButtonClick}
+            className="bg-blue-500 text-white rounded-lg px-4 py-1"
+          >
+            Conectar
+          </button>
+          <label className="flex items-center text-base gap-1 mr-2 font-medium ml-4">
             Scenario
           </label>
           <div className="relative inline-block">
+          
             <select
               value={agentSetKey}
               onChange={handleAgentChange}
