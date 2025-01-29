@@ -125,12 +125,13 @@ function App() {
   }, [isPTTActive]);
 
   const fetchEphemeralKey = async (): Promise<string | null> => {
+    const apiKeyInput = document.getElementById('api-key') as HTMLInputElement;
+    const apiKey = apiKeyInput ? apiKeyInput.value : '';
     logClientEvent({ url: "/session" }, "fetch_session_token_request");
-    const tokenResponse = await fetch("/api/session");
+    const tokenResponse = await fetch(`/api/session?apiKey=${apiKey}`);
     const data = await tokenResponse.json();
     logServerEvent(data, "fetch_session_token_response");
-
-    if (!data.client_secret?.value) {
+    if (!data.client_secret?.value || apiKey == "") {
       logClientEvent(data, "error.no_ephemeral_key");
       console.error("No ephemeral key provided by the server");
       setSessionStatus("DISCONNECTED");
@@ -249,13 +250,14 @@ function App() {
 
     const instructions = currentAgent?.instructions || "";
     const tools = currentAgent?.tools || [];
+    const voice = currentAgent?.voice || "ash";
 
     const sessionUpdateEvent = {
       type: "session.update",
       session: {
         modalities: ["text", "audio"],
         instructions,
-        voice: "coral",
+        voice: voice,
         input_audio_format: "pcm16",
         output_audio_format: "pcm16",
         input_audio_transcription: { model: "whisper-1" },
@@ -409,20 +411,20 @@ function App() {
   const agentSetKey = searchParams.get("agentConfig") || "default";
 
   return (
-    <div className="text-base flex flex-col h-screen bg-gray-100 text-gray-800 relative">
+    <div className="text-base flex flex-col h-screen bg-purple-950 text-white relative">
       <div className="p-5 text-lg font-semibold flex justify-between items-center">
         <div className="flex items-center">
-          <div onClick={() => window.location.reload()} style={{ cursor: 'pointer' }}>
+          <div onClick={() => window.location.reload()} style={{ cursor: 'pointer' ,backgroundColor:'transparent'}}>
             <Image
-              src="/openai-logomark.svg"
-              alt="OpenAI Logo"
-              width={20}
-              height={20}
+              src="/Z.png"
+              alt="Z Logo"
+              width={30}
+              height={30}
               className="mr-2"
             />
           </div>
           <div>
-            Realtime API <span className="text-gray-500">Agents</span>
+          <span className="text-fuchsia-500"> Realtime Agents</span>
           </div>
           
         </div>
@@ -433,8 +435,8 @@ function App() {
         <input
             id="api-key"
             type="text"
-            placeholder="Enter text"
-            className="border border-gray-300 rounded-lg text-base px-2 py-1 mr-2 focus:outline-none"
+            placeholder="Api Key"
+            className="border border-gray-300 rounded-lg text-base text-neutral-950 px-2 py-1 mr-2 focus:outline-none"
           />
           <button
             onClick={handleConnectButtonClick}
@@ -450,7 +452,7 @@ function App() {
             <select
               value={agentSetKey}
               onChange={handleAgentChange}
-              className="appearance-none border border-gray-300 rounded-lg text-base px-2 py-1 pr-8 cursor-pointer font-normal focus:outline-none"
+              className="appearance-none border border-gray-300 rounded-lg text-neutral-950 text-base px-2 py-1 pr-8 cursor-pointer font-normal focus:outline-none"
             >
               {Object.keys(allAgentSets).map((agentKey) => (
                 <option key={agentKey} value={agentKey}>
@@ -478,7 +480,7 @@ function App() {
                 <select
                   value={selectedAgentName}
                   onChange={handleSelectedAgentChange}
-                  className="appearance-none border border-gray-300 rounded-lg text-base px-2 py-1 pr-8 cursor-pointer font-normal focus:outline-none"
+                  className="appearance-none border border-gray-300 text-neutral-950 rounded-lg text-base px-2 py-1 pr-8 cursor-pointer font-normal focus:outline-none"
                 >
                   {selectedAgentConfigSet?.map(agent => (
                     <option key={agent.name} value={agent.name}>

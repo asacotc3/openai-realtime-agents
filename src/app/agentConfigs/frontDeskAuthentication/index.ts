@@ -1,10 +1,10 @@
 import authenticationAgent from './authentication';
-import tourAgent from "./tourGuide";
+import servicioTecnico from "./servicioTecnico";
 import { injectTransferTools } from '../utils';
 
-authenticationAgent.downstreamAgents = [tourAgent]
-tourAgent.downstreamAgents = [authenticationAgent]
+authenticationAgent.downstreamAgents = [servicioTecnico]
+servicioTecnico.downstreamAgents = [authenticationAgent]
 
-const agents = injectTransferTools([authenticationAgent, tourAgent]);
+const agents = injectTransferTools([authenticationAgent, servicioTecnico]);
 
 export default agents;
