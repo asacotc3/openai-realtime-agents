@@ -5,10 +5,8 @@ import segontiaphone from "./segontiaphone";
 import simpleExample from "./simpleExample";
 
 export const allAgentSets: AllAgentConfigsType = {
-  frontDeskAuthentication,
-  customerServiceRetail,
-  simpleExample,
-  segontiaphone
+  segontiaphone,
+  customerServiceRetail
 };
 
-export const defaultAgentSetKey = "simpleExample";
+export const defaultAgentSetKey = "segontiaphone";

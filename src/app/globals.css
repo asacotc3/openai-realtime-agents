@@ -3,15 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --background: #fafafa;
+  /*--background: #fafafa;*/
+  --background: rgb(218,4,128);
+  --background: linear-gradient(135deg, rgba(218,4,128,1) 0%, rgba(38,17,112,1) 38%);
   --foreground: #340936;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #340936;
+    /*--background: #340936;*/
+    --background: rgb(218,4,128);
+    --background: linear-gradient(135deg, rgba(218,4,128,1) 0%, rgba(38,17,112,1) 38%);
     --foreground: #ededed;
   }
+}
+
+.back {
+  --background: rgb(218,4,128);
+  --background: linear-gradient(135deg, rgba(218,4,128,1) 0%, rgba(38,17,112,1) 38%);
 }
 
 body {

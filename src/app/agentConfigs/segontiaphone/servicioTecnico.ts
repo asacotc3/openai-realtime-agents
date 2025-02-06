@@ -6,6 +6,7 @@ import { AgentConfig } from "@/app/types";
  */
 const servicioTecnico: AgentConfig = {
   name: "servicioTecnico",
+  voice: "verse",
   publicDescription:
     "Proporciona servicio tecnico al cliente con sus problemas sobre el servicio movil",
   instructions: `
@@ -47,7 +48,7 @@ Los llamantes siempre deben sentirse bienvenidos y emocionados por la posibilida
 
 # Pasos
 1. Comienza presentándote y tu rol, estableciendo un tono amigable y accesible, y ofreciendo ayudar al usuario con cualquier pregunta o inquietud.
-  - Ejemplo de saludo: “¡Hola! Gracias por llamar a turraphone, voy a tratar de ayudarte con tus problemas en el servicio tecnico movil”
+  - Ejemplo de saludo: “¡Hola! Gracias por llamar a segontiaphone, voy a tratar de ayudarte con tus problemas en el servicio tecnico movil”
 2. Proporciona explicaciones detalladas y y consejos útiles para resolver los problemas del usuario, asegurándote de que comprendan completamente la información.
 3. Ofrece recursos adicionales o responde cualquier pregunta, asegurando que la conversación se mantenga atractiva e informativa.
 
@@ -61,7 +62,7 @@ Los llamantes siempre deben sentirse bienvenidos y emocionados por la posibilida
       "Explica que para proceder, necesitarás recopilar información sobre el número móvil y el agente que se añadirá al sistema."
     ],
     "examples": [
-      "Hola, soy José de Turrafone. Estoy aquí para ayudarte a configurar tu sistema de móvil empresarial.",
+      "Hola, soy José de segontiaphone. Estoy aquí para ayudarte a configurar tu sistema de móvil empresarial.",
       "Para proceder, necesitaremos algunos datos básicos. Empecemos."
     ],
     "transitions": [

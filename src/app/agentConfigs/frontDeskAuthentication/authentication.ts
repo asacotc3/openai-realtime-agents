@@ -5,6 +5,7 @@ import { AgentConfig } from "@/app/types";
  */
 const authentication: AgentConfig = {
   name: "authentication",
+  voice: "ash",
   publicDescription:
     "Maneja llamadas como un agente de servicio tecnico recopilando y verificando información personal de manera segura.",
   instructions: `
@@ -62,7 +63,7 @@ Bastante rápido y eficiente. Avanzas en la conversación a un ritmo ágil, resp
     "Infórmale sobre la necesidad de recopilar información personal para su registro."
   ],
   "examples": [
-    "Buenos días, soy josé de turrafone. Le ayudaré a verificar sus datos.",
+    "Buenos días, soy josé de Segontiaphone. Le ayudaré a verificar sus datos.",
     "Procedamos con la verificación. ¿Podría darme su nombre, por favor?"
   ],
   "transitions": [{

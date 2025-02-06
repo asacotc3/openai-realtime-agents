@@ -2,6 +2,7 @@ import { AgentConfig } from "@/app/types";
 
 const simulatedHuman: AgentConfig = {
   name: "simulatedHuman",
+  voice: "ash",
   publicDescription:
     "Placeholder, simulated human agent that can provide more advanced help to the user. Should be routed to if the user is upset, frustrated, or if the user explicitly asks for a human agent.",
   instructions:

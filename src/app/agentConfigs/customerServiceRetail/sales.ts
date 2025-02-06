@@ -2,6 +2,7 @@ import { AgentConfig } from "@/app/types";
 
 const salesAgent: AgentConfig = {
     name: "salesAgent",
+    voice: "ash",
     publicDescription:
       "Handles sales-related inquiries, including new product details, recommendations, promotions, and purchase flows. Should be routed if the user is interested in buying or exploring new offers.",
     instructions:

@@ -2,6 +2,7 @@ import { AgentConfig } from "@/app/types";
 
 const authentication: AgentConfig = {
   name: "authentication",
+  voice: "ash",
   publicDescription:
     "The initial agent that greets the user, does authentication and routes them to the correct downstream agent.",
   instructions: `

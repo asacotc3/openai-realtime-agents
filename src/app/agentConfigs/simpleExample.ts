@@ -4,6 +4,7 @@ import { injectTransferTools } from "./utils";
 // Define agents
 const haiku: AgentConfig = {
   name: "haiku",
+  voice: "ash",
   publicDescription: "Agent that writes haikus.", // Context for the agent_transfer tool
   instructions:
     "Ask the user for a topic, then reply with a haiku about that topic.",
@@ -12,6 +13,7 @@ const haiku: AgentConfig = {
 
 const greeter: AgentConfig = {
   name: "greeter",
+  voice: "ash",
   publicDescription: "Agent that greets the user.",
   instructions:
     "Please greet the user and ask them if they'd like a Haiku. If yes, transfer them to the 'haiku' agent.",

@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    const apiKey = searchParams.get('apiKey') || process.env.OPENAI_API_KEY;
+    const apiKey = searchParams.get('apiKey') /*|| process.env.OPENAI_API_KEY*/;
     
     const response = await fetch(
       "https://api.openai.com/v1/realtime/sessions",

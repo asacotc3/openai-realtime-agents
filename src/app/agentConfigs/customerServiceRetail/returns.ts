@@ -2,6 +2,7 @@ import { AgentConfig } from "@/app/types";
 
 const returns: AgentConfig = {
   name: "returns",
+  voice: "ash",
   publicDescription:
     "Customer Service Agent specialized in order lookups, policy checks, and return initiations.",
   instructions: `
@@ -279,13 +280,13 @@ true/false/need_more_information
       const model = "o1-mini";
       console.log(`checking order eligibility with model=${model}`);
 
-      const response = await fetch("/api/chat/completions", {
+     /*  const response = await fetch("/api/chat/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ model, messages }),
-      });
+      }); 
 
       if (!response.ok) {
         console.warn("Server returned an error:", response);
@@ -294,7 +295,7 @@ true/false/need_more_information
 
       const completion = await response.json();
       console.log(completion.choices[0].message.content);
-      return { result: completion.choices[0].message.content };
+      return { result: completion.choices[0].message.content };*/
     },
   },
 };
